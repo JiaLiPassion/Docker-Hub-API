@@ -444,8 +444,8 @@
                     active: true,
                     dockerhub_repo_name: `${username}/${name}`,
                     is_private: false,
-                    ...details
                 };
+		Object.assign(obj, details);
 
                 return this.makePostRequest(`repositories/${username}/${name}/autobuild/`, obj).then(resolve).catch(reject);
             }.bind(this));
